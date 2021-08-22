@@ -7,7 +7,7 @@ options.add_argument('window-size=1920x1080')
 options.add_argument("disable-gpu")
 characters = "[]"
 def 뉴스본문크롤링(link,nowtime,keyword):
-    driver = webdriver.Chrome('chromedriver.exe', chrome_options=options) #또는 chromedriver.exe
+    driver = webdriver.Chrome('/usr/bin/chromedriver', chrome_options=options) #또는 chromedriver.exe
     driver.implicitly_wait(15) # 묵시적 대기, 활성화를 최대 15초가지 기다린다.
     뉴스본문 = []
     # 페이지 가져오기(이동)

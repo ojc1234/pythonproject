@@ -1,11 +1,15 @@
 from selenium import webdriver
 import time
+chrome_options = webdriver.ChromeOptions()
+
+chrome_options.add_argument('--headless')
+
+chrome_options.add_argument('--no-sandbox')
+
+chrome_options.add_argument('--disable-dev-shm-usage')
 options = webdriver.ChromeOptions()
-options.add_argument('headless')
-options.add_argument('window-size=1920x1080')
-options.add_argument("disable-gpu")
 def 키워드크롤링():
-    driver = webdriver.Chrome('chromedriver.exe', chrome_options=options) #또는 chromedriver.exe
+    driver = webdriver.Chrome('/usr/bin/chromedriver',chrome_options=chrome_options) #또는 chromedriver.exe
     driver.implicitly_wait(15) # 묵시적 대기, 활성화를 최대 15초가지 기다린다.
     # 페이지 가져오기(이동)
     driver.get('https://www.bigkinds.or.kr/')
