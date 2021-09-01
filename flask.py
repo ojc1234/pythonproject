@@ -18,7 +18,7 @@ def mongoTest():
     p = []
     q = 0
     client = MongoClient('mongodb://localhost:27017/')
-    db = client.cloring
+    db = client.hello
     newcollection = db.collection_names(include_system_collections=False)
     for i in newcollection:
         p.insert(q,i)

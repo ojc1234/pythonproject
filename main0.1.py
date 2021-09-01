@@ -12,8 +12,8 @@ from pymongo import MongoClient
 print ("hello")
 nowtime = time.strftime('%Y%m%d',  time.localtime(time.time())) #크롤링 구동 시간 저장
 my_client = MongoClient("mongodb://localhost:27017")
-mydb = my_client['cloring']
-mycol = mydb['customers' + nowtime]
+mydb = my_client['hello']
+
 
 키워드크롤링결과 = 키워드크롤링() #빅카인즈 크롤링
 rt = []
@@ -46,6 +46,7 @@ for i in st:
         print (k)        
         alist = []
         alist.insert(num,k)
+        mycol = mydb[k.get('키워드')]
         if k.get('link') != 0:
             try:
                 if not (mycol.find(i[twonum][0]) > -1):
@@ -54,7 +55,6 @@ for i in st:
                     mycol.insert_many(alist)
             except:
                 mycol.insert_many(alist)
-        
 
         num = num + 1
         twonum = twonum + 1

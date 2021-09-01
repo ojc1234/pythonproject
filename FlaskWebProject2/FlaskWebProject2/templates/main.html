@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <div>
+        <style>
+            table {
+                width: 100%;
+                table-layout: fixed;
+                word-break: break-all;
+            }
+
+            th, tr {
+                border: 1px solid #444444;
+                width: 100%;
+                padding: 10px;
+                margin: 10px;
+                width: auto;
+            }
+
+            span {
+                width: 30%;
+                margin: 0;
+                padding: 0;
+                font-family: "naBrush";
+            }
+
+            #title {
+                width: auto;
+            }
+
+            @FONT-FACE {
+                font-family: 'naBrush';
+                src: url("tway_air.ttf");
+            }
+        </style>
+    </div>
+</head>
+<body>
+    <h1>오늘의 주요 기사</h1>
+    <div>
+        <!-- <p>{{keyword}}</p> -->
+        <p>모든 데이터의 저작권은 네이버와 각각의 신문사에 있습니다.</p>
+        <p>{{result1}}</p>
+        <p>기사 데이터 명:{{today}}</p>
+        <p>총좋아요({{likeadd}})</p>
+        <p>총싫어요({{angryadd}})</p>
+        <p>------------------------------------</p>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th>
+                        제목
+                    </th>
+                    <th>
+                        갱신시간
+                    </th>
+                    <th>
+                        키워드
+                    </th>
+                    <th>
+                        좋아요
+                    </th>
+                    <th>
+                        화나요
+                    </th>
+
+                </tr>
+            </tbody>
+                <tbody>
+                {% for i in data %}
+                <tr>
+
+                    <td id="title"><span>제목: {{i.title}}</span></td>
+                    <td><span>갱신시간: {{i.refreshtime}}</span></td>
+                    <td><span>키워드: {{i.키워드}}</span></td>
+                    <td><span>좋아요: {{i.like}}</span></td>
+                    <td><span>화나요: {{i.angry}}</span></td>
+                    <td><a class="btn btn-info" href="{{i.link}}">기사원문 보기</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+       
+
+
+        <p>---------------</p>
+       
+    </div>
+</body>
+</html>
+{% endblock %}
